@@ -5,8 +5,8 @@ run() { ! pgrep -x "$1" >/dev/null && "$@"; }
 xsetroot -cursor_name left_ptr &
 setxkbmap -layout us,ru -option "grp:alt_shift_toggle,grp_led:scroll" &
 picom -b --config $HOME/.config/picom.conf &
-# hsetroot -fill /usr/share/wall/ctld.png &
-run nitrogen --restore &
+hsetroot -fill /usr/share/wall/ctld.png &
+# run nitrogen --restore &
 run sxhkd -c $HOME/.config/bspwm/sxhkd/sxhkdrc &
 if [ "$(which polybar)" != "polybar not found" ]; then
   $HOME/.config/bspwm/polybar/launch.sh &
