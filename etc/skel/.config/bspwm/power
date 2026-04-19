@@ -1,37 +1,5 @@
 #!/bin/sh
 
-### ru
-# DIALOG_RESULT=$(echo -e 'Заблокировать\nВыйти из bspwm\nСон с блокировкой\nГибернация\nПерезапустить\nВыключить\nЗакрыть' | rofi -dmenu -i -p "SYSTEM" -hide-scrollbar -tokenize -lines 7 -eh 1 -width 25 -location 0 -xoffset 0 -yoffset 0 -padding 20 -disable-history)
-
-# echo "This result is : $DIALOG_RESULT"
-# sleep 1;
-
-# if [ "$DIALOG_RESULT" = "Заблокировать" ];
-# then
-#     exec $HOME/.config/bspwm/multilock.sh -l blur
-# elif [ "$DIALOG_RESULT" = "Выйти из bspwm" ];
-# then
-#     exec bspc quit
-# elif [ "$DIALOG_RESULT" = "Сон с блокировкой" ];
-# then
-#     exec $HOME/.config/bspwm/multilock.sh -s blur &
-#     exec systemctl suspend
-# elif [ "$DIALOG_RESULT" = "Гибернация" ];
-# then
-#     exec systemctl hibernate
-# elif [ "$DIALOG_RESULT" = "Перезапустить" ];
-# then
-#     exec systemctl reboot
-# elif [ "$DIALOG_RESULT" = "Выключить" ];
-# then
-#     exec systemctl poweroff
-# elif [ "$DIALOG_RESULT" = "Закрыть" ];
-# then
-#     exit 0
-# fi
-
-
-### en
 DIALOG_RESULT=$(echo -e 'Lock\nQuit bspwm\nSuspend Lock\nHibernate\nReboot\nPoweroff\nExit' | rofi -dmenu -i -p "SYSTEM" -hide-scrollbar -tokenize -lines 7 -eh 1 -width 25 -location 0 -xoffset 0 -yoffset 0 -padding 20 -disable-history)
 
 echo "This result is : $DIALOG_RESULT"
