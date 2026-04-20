@@ -4,8 +4,8 @@
 
 # show help on key bindings
 super + alt + h
-  #sh -c "$HOME/.config/bspwm/show_keys"
   $HOME/.config/bspwm/bspwmfloat alacritty --class Float -e ~/.config/bspwm/show_keys
+  #sh -c "$HOME/.config/bspwm/show_keys"
 
 # terminal emulator draw
 alt + Return
@@ -13,7 +13,7 @@ alt + Return
 
 # terminal emulator Tiled
 super + Return
-  urxvt -name Tiled
+  alacritty --class Tiled
 
 # terminal emulator Float
 alt + t
@@ -180,8 +180,8 @@ super + shift + {Left,Right}
   bspc wm -h on
 
 # focus desktop 1-10
-super + {q,w,e,r,t,y,u,i,o,0}
-  bspc desktop -f '^{1-9,10}'
+#super + {q,w,e,r,t,y,u,i,o,0}
+#  bspc desktop -f '^{1-9,10}'
 
 # focus or send to the given desktop
 super + {_,alt + }{1-9,0}
