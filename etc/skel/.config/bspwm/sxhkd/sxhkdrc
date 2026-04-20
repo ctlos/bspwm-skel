@@ -3,11 +3,11 @@
 #
 
 # show help on key bindings
-super + F1
-  sh -c "$HOME/.config/bspwm/show_keys"
-  #$HOME/.config/bspwm/bspwmfloat urxvt -name Float -e ~/.config/bspwm/show_keys
+super + alt + h
+  #sh -c "$HOME/.config/bspwm/show_keys"
+  $HOME/.config/bspwm/bspwmfloat alacritty --class Float -e ~/.config/bspwm/show_keys
 
-# terminal emulator
+# terminal emulator draw
 alt + Return
   sh -c "$HOME/.bin/draw"
 
@@ -17,7 +17,7 @@ super + Return
 
 # terminal emulator Float
 alt + t
-  $HOME/.config/bspwm/bspwmfloat urxvt -name Float
+  $HOME/.config/bspwm/bspwmfloat alacritty --class Float
 
 # program launcher rofi
 alt + d
@@ -27,9 +27,9 @@ alt + d
 alt + w
   firefox
 
-# sublime text3
+# sublime text
 alt + e
-  subl3
+  subl
 
 # thunar
 alt + f
@@ -41,7 +41,10 @@ alt + m
 
 # ranger
 alt + r
-  urxvt -name Ranger -e ranger
+  alacritty --class Ranger -e ranger
+
+# alt + r
+  # $HOME/.config/bspwm/popup Ranger ranger
 
 # alt + c
 #   rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
@@ -73,9 +76,6 @@ super + alt + Print
 # mpc current
 super + alt + m
   notify-send "Now Playing ♫" "$(mpc current)"
-
-# alt + r
-  # $HOME/.config/bspwm/popup Ranger ranger
 
 # Balance desktop
 super + b

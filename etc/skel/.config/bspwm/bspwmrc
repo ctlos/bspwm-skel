@@ -16,11 +16,11 @@ bspc config presel_feedback_color "$color0"
 SPACES=$(bspc query -D)
 for SPACE in $SPACES
 do
-  bspc config -d ${SPACE} window_gap      10
-  bspc config -d ${SPACE} top_padding     25
-  bspc config -d ${SPACE} bottom_padding  25
-  bspc config -d ${SPACE} left_padding   50
-  bspc config -d ${SPACE} right_padding  50
+  bspc config -d ${SPACE} window_gap      7
+  bspc config -d ${SPACE} top_padding     15
+  bspc config -d ${SPACE} bottom_padding  15
+  bspc config -d ${SPACE} left_padding   15
+  bspc config -d ${SPACE} right_padding  15
 done
 
 bspc config automatic_scheme      spiral
@@ -38,11 +38,11 @@ bspc desktop ^9 -l monocle
 bspc desktop ^10 -l monocle
 
 # Rules
-bspc rule -a URxvt:Tiled desktop='^1' follow=on
-bspc rule -a URxvt:Tmux desktop='^1' follow=on
+bspc rule -a Tiled desktop='^1' follow=on
+bspc rule -a Tmux desktop='^1' follow=on
 bspc rule -a Chromium desktop='^2'
 bspc rule -a firefox desktop='^2'
-bspc rule -a Subl3 desktop='^3'
+bspc rule -a Sublime_text desktop='^3'
 # bspc rule -a Thunar desktop='^4' state=pseudo_tiled
 bspc rule -a Thunar desktop='^4' follow=on focus=on
 bspc rule -a Thunar:Dialog state=floating center=true
@@ -60,16 +60,17 @@ bspc rule -a 'Wps' desktop='^8'
 bspc rule -a 'Et' desktop='^8'
 bspc rule -a 'Wpp' desktop='^8'
 bspc rule -a 'Wpspdf' desktop='^8'
+bspc rule -a 'obsidian' desktop='^8' follow=on focus=on
 bspc rule -a Gnome-chess desktop='^9'
 bspc rule -a teeworlds desktop='^9'
 bspc rule -a Steam desktop='^9' state=floating
 bspc rule -a "VirtualBox Manager" desktop='^10'
 
-bspc rule -a URxvt:Newsboat state=floating center=on
-bspc rule -a URxvt:Ranger state=floating center=on
-bspc rule -a URxvt:Pacui state=floating center=on
-bspc rule -a URxvt:Float state=floating
-bspc rule -a URxvt:Draw state=floating
+bspc rule -a Newsboat state=floating center=on
+bspc rule -a Ranger state=floating center=on
+bspc rule -a Pacui state=floating center=on
+bspc rule -a Float state=floating
+bspc rule -a Draw state=floating
 bspc rule -a Galculator state=floating
 bspc rule -a Gpick state=floating
 bspc rule -a GParted state=floating
@@ -80,6 +81,9 @@ bspc rule -a Lxrandr state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Timeshift-gtk state=floating
 bspc rule -a qt5ct state=floating rectangle=700x470+0+0 center=on
+bspc rule -a qt6ct state=floating rectangle=700x470+0+0 center=on
+bspc rule -a kvantummanager state=floating rectangle=700x470+0+0 center=on
+bspc rule -a obs state=floating
 bspc rule -a SimpleScreenRecorder state=floating
 bspc rule -a Sxiv state=floating
 bspc rule -a Viewnior state=floating

@@ -1,9 +1,19 @@
 [colors]
-# background = ${xrdb:background}
-background = #902A253E
-foreground = ${xrdb:color7}
-accent = #958485CE
-text = #9baec8
+background = ${xrdb:background}
+#background = #902A253E
+foreground = #9baec8
+bg_accent = ${xrdb:color0}
+
+primary = #798BC7
+accent = #5E81AC
+red = #BF616A
+green = #A3BE8C
+yellow = #EBCB8B
+blue = #88C0D0
+magenta = #B48EAD
+cyan = #D08770
+white = #ECEFF4
+dark = #2E3440
 
 [settings]
 screenchange-reload = true
@@ -28,9 +38,10 @@ offset-y = 0
 fixed-center = true
 bottom = false
 #locale = ru_RU.UTF-8
+underline-size = 2
 
 background = ${colors.background}
-foreground = ${colors.text}
+foreground = ${colors.foreground}
 
 line-size = 0
 line-color = #f00
@@ -48,9 +59,9 @@ module-margin-right = 0
 font-0 = "Ubuntu:style=Bold:size=10:antialias=false;2"
 #font-2 = "Siji:pixelsize=8;1"
 # Cat unicode: echo -e "\uF31A"
-font-1 = "Font Awesome 6 Free:style=Regular:pixelsize=9;2"
-font-2 = "Font Awesome 6 Free:style=Solid:pixelsize=9;2"
-font-3 = "Font Awesome 6 Brands:pixelsize=9;2"
+font-1 = "Font Awesome 7 Free:style=Regular:pixelsize=9;2"
+font-2 = "Font Awesome 7 Free:style=Solid:pixelsize=9;2"
+font-3 = "Font Awesome 7 Brands:pixelsize=9;2"
 font-4 = "Hack Nerd Font Mono:pixelsize=16:antialias=false;4"
 font-5 = "Weather Icons:style=Regular:pixelsize=10:antialias=false;2"
 
@@ -88,17 +99,20 @@ ws-icon-default = 
 format = <label-state> <label-mode>
 
 label-focused = %icon%
-label-focused-background = ${colors.accent}
-label-focused-foreground = ${xrdb:color7}
-# label-focused-underline= #ddd
+label-focused-background = ${colors.bg_accent}
+label-focused-foreground = ${colors.primary}
+label-focused-underline= ${colors.primary}
 label-focused-padding = 4
 
 label-occupied = %icon%
-label-occupied-foreground = ${colors.accent}
+label-occupied-foreground = ${colors.primary}
+label-occupied-background = ${colors.bg_accent}
 label-occupied-padding = 4
 
 label-urgent = %icon%
-label-urgent-foreground = ${xrdb:color5}
+label-urgent-foreground = ${colors.red}
+label-urgent-background = ${colors.bg_accent}
+label-urgent-underline= ${colors.red}
 label-urgent-padding = 4
 
 label-empty = %icon%
@@ -111,9 +125,9 @@ label-empty-padding = 4
 type = custom/script
 exec = ~/.config/bspwm/polybar/uparch.sh
 interval = 600
-format-prefix = " "
-format-prefix-foreground = ${colors.accent}
-click-left = "urxvt -name Pacui -e ~/.bin/pacui &"
+format-prefix = "  "
+format-prefix-foreground = ${colors.primary}
+click-left = "alacritty --class Pacui -e ~/.bin/pacui &"
 
 
 
@@ -138,8 +152,9 @@ label-maxlen = 20
 
 [module/term]
 type = custom/text
-content = 
-content-foreground = ${colors.accent}
+content = "  "
+#content-padding = 1
+content-foreground = ${colors.primary}
 # click-left = "urxvt -name tmux -geometry 190x50 -e tmux new -s proc -d ranger\; splitw -dv htop\; splitw -dh gotop\; splitw -dh\; attach &"
 click-left = "urxvt -name Tmux -e sh -c 'tmux attach || tmux new -s work' &"
 #click-right = "urxvt -name Tmux -e sh -c '~/.bin/rxrun.sh' &"
@@ -149,8 +164,8 @@ click-left = "urxvt -name Tmux -e sh -c 'tmux attach || tmux new -s work' &"
 [module/app]
 type = custom/text
 content = 
-content-foreground = ${xrdb:color7}
-content-background = ${colors.accent}
+content-foreground = ${colors.primary}
+content-background = ${colors.bg_accent}
 content-padding = 3
 click-left = rofi -show drun
 
@@ -158,9 +173,10 @@ click-left = rofi -show drun
 
 [module/rss]
 type = custom/text
-content = 
-content-foreground = ${colors.accent}
-click-left = "urxvt -name Newsboat -e newsboat &"
+content = "  "
+#content-padding = 1
+content-foreground = ${colors.primary}
+click-left = "alacritty --class Newsboat -e newsboat &"
 click-right =
 
 
@@ -169,7 +185,7 @@ click-right =
 type = internal/cpu
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.accent}
+format-prefix-foreground = ${colors.primary}
 label = %percentage%%
 
 
@@ -178,7 +194,7 @@ label = %percentage%%
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.accent}
+format-prefix-foreground = ${colors.primary}
 label = %percentage_used%%
 
 
@@ -190,7 +206,7 @@ format-muted =  0%
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-ramp-volume-foreground = ${colors.accent}
+ramp-volume-foreground = ${colors.primary}
 
 
 
@@ -199,7 +215,7 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 blacklist-1 = caps lock
 format-prefix = " "
-format-prefix-foreground = ${colors.accent}
+format-prefix-foreground = ${colors.primary}
 label = %layout%
 
 
@@ -207,8 +223,8 @@ label = %layout%
 [module/power]
 type = custom/text
 content = 
-content-foreground = ${xrdb:color7}
-content-background = ${colors.accent}
+content-foreground = ${colors.primary}
+content-background = ${colors.bg_accent}
 content-padding = 3
 click-left = ~/.config/bspwm/power
 
@@ -227,11 +243,11 @@ icon-pause = 
 icon-stop = 
 icon-prev = 
 icon-next = 
-icon-play-foreground = ${colors.accent}
-icon-pause-foreground = ${colors.accent}
-icon-stop-foreground = ${colors.accent}
-icon-prev-foreground = ${colors.accent}
-icon-next-foreground = ${colors.accent}
+icon-play-foreground = ${colors.primary}
+icon-pause-foreground = ${colors.primary}
+icon-stop-foreground = ${colors.primary}
+icon-prev-foreground = ${colors.primary}
+icon-next-foreground = ${colors.primary}
 
 
 
@@ -243,7 +259,7 @@ date-alt = "%e %B %Y,"
 time = "%H:%M"
 time-alt = "%H:%M:%S"
 format-prefix = " "
-format-prefix-foreground = ${colors.accent}
+format-prefix-foreground = ${colors.primary}
 # format-underline = #5294E2
 label =%{A3:gsimplecal & disown:}%date% %time%%{A}
 # label = %date% %time%
